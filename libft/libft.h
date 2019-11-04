@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 09:31:50 by gmolin            #+#    #+#             */
-/*   Updated: 2019/11/01 14:32:14 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/11/04 16:11:03 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,8 @@ char			*ft_strupcase(char *str);
 char			*ft_strlowcase(char *str);
 void			ft_swap(int *a, int *b);
 int				ft_isspace(char c);
+int				ft_wordcount(char const *str, char c);
+int				ft_checkc(char const s, char c);
+int				ft_wordlen(char const *str, char c);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 09:36:49 by gmolin            #+#    #+#              #
-#    Updated: 2019/11/01 14:17:40 by gmolin           ###   ########.fr        #
+#    Updated: 2019/11/04 16:10:16 by gmolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRCS = 	ft_lstdelone.c ft_putendl_fd.c ft_striteri.c ft_strrev.c \
 		ft_putchar_fd.c ft_strequ.c ft_strnstr.c ft_lstdel.c \
     	ft_putendl.c ft_striter.c ft_strrchr.c ft_strjoin.c \
 		ft_strsplit.c ft_lstmap.c ft_lstpushback.c ft_strndup.c \
-		ft_strcdup.c ft_strclen.c ft_strcjoin.c 
+		ft_strcdup.c ft_strclen.c ft_strcjoin.c ft_wordcount.c \
+		ft_wordlen.c ft_checkc.c
 		
 INCLUDES = ./
 
@@ -48,7 +49,8 @@ OUTPUT = 	ft_lstdelone.o ft_putendl_fd.o ft_striteri.o ft_strrev.o \
 			ft_putchar_fd.o ft_strequ.o ft_strnstr.o ft_lstdel.o \
 			ft_putendl.o ft_striter.o ft_strrchr.o ft_strjoin.o \
 			ft_strsplit.o ft_lstmap.o ft_lstpushback.o ft_strndup.o \
-			ft_strcdup.o ft_strclen.o ft_strcjoin.o
+			ft_strcdup.o ft_strclen.o ft_strcjoin.o ft_wordcount.o \
+			ft_wordlen.o ft_checkc.o
 			
 all: $(NAME)
 

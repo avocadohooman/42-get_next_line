@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcdup.c                                       :+:      :+:    :+:   */
+/*   ft_wordcount.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 14:11:17 by gmolin            #+#    #+#             */
-/*   Updated: 2019/11/04 16:06:08 by gmolin           ###   ########.fr       */
+/*   Created: 2019/11/04 16:03:54 by gmolin            #+#    #+#             */
+/*   Updated: 2019/11/04 16:09:47 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcdup(const char *src, int c)
+int		ft_wordcount(char const *str, char c)
 {
-	int		i;
-	char	*dst;
-	int		len;
+	int i;
+	int count;
 
-	len = 0;
-	while (src[len] != c && src[len] != '\0')
-		len++;
 	i = 0;
-	if (!(dst = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	while (src[i] != c && src[i] != '\0')
+	count = 0;
+	while (str[i])
 	{
-		dst[i] = src[i];
+		if (!(ft_checkc(str[i], c)))
+			count++;
+		while (str[i + 1] && !(ft_checkc(str[i], c)))
+			i++;
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (count);
 }
