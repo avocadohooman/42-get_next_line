@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcdup.c                                       :+:      :+:    :+:   */
+/*   ft_strcjoin.c                                       :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 14:11:17 by gmolin            #+#    #+#             */
-/*   Updated: 2019/11/01 14:32:29 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/19 21:28:33 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/29 17:00:21 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h> //delete before submission
 
-char	*ft_strcdup(const char *src, int c)
+char	*ft_strcjoin(char const *s1, char const *s2, int c)
 {
+	char	*str;
 	int		i;
-	char	*dst;
-	int		len;
+	int		ii;
 
-	len = 0;
-	while (src[len] != c && src[len] != '\0')
-		len++;
+	if (!s1 || !s2)
+		return (0);
 	i = 0;
-	if (!(dst = (char*)malloc(sizeof(char) * (len + 1))))
+	str = (char*)malloc(sizeof(char) * (ft_strclen(s1, c) + 
+            ft_strclen(s2, c) + 1));
+	if (str == NULL)
 		return (NULL);
-	while (src[i] != c && src[i] != '\0')
+	while (s1[i] != '\0' && s1[i] != c)
 	{
-		dst[i] = src[i];
+		str[i] = s1[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	ii = 0;
+	while (s2[ii] != '\0' && s2[ii] != c)
+	{
+		str[i] = s2[ii];
+		i++;
+		ii++;
+	}
+	str[i] = '\0';
+	return (str);
 }

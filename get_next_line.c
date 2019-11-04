@@ -16,27 +16,29 @@
 
 int		get_next_line(const int fd, char **line)
 {
-	char		buf[BUF_SIZE + 1];
-	int 		ret;
-	char		*tmp;
-	int			i;
+	char			buf[BUF_SIZE + 1];
+	int 			ret;
+	char			*tmp;
+	static char		*pos[FD_MAX];
 
-	i = 0;
 	if (fd < 0 || !line)
 		return (-1);
 	while ((ret = read(fd, buf, BUF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		if (i == 0)
+		if (pos[fd] == '\0')
+			pos[fd] = ft_strcdup(buf, '\n');
+		else
 		{
-			*line = ft_strcdup(buf, '\n');
+			tmp = ft_strjoin(pos[fd], buf);
+			free(pos[fd]);
+			pos[fd] = tmp;
 		}
-		else 
-		{
-			we need to use strjoin and a tmp string to store each letter.
-			strjoin to append each byte to the previos one until we reach \n
-			(this is not necessary if byte size is big enough, but not with only 1 byte in the BUF)
-		}
+		if (ft_strchr(buf, '\n') > 0)
+			break ;
 	}
-	return (0);
+	*line = ft_strdup(pos[fd]);
+	if (ret <= 0 || pos[fd] == NULL || pos[fd][0] == '\0')
+		return (0);
+	return (1);
 }

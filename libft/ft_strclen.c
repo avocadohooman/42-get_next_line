@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strclen.c                                        :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/31 12:49:55 by gmolin            #+#    #+#             */
-/*   Updated: 2019/11/01 17:31:09 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/16 10:27:07 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/25 18:36:09 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUF_SIZE 1
-# define FD_MAX 4864
+size_t	ft_strclen(const char *str, int c)
+{
+	size_t	i;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (str[i] != '\0' && str[i] != c)
+		i++;
+	return (i);
+}

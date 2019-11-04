@@ -21,7 +21,6 @@ int main(int argc, char **argv)
 	int				gnl;
 	char			*line;
 
-	line = NULL;
 	fd = open(argv[1], O_RDONLY);
 	if (fd > 3)
 	{
@@ -33,10 +32,12 @@ int main(int argc, char **argv)
 		ft_putstr("File name missing.\n");
 		return (-1);
 	}
-	while ((gnl = get_next_line(fd, &line)))
+	while ((gnl = get_next_line(fd, &line)) > 0)
 	{
 		printf("%d\n", gnl);
+		printf("%s\n", line);
 	}
+	printf("%d\n", gnl);
 	printf("%s\n", line);
 	if (close(fd) == -1)
 	{
