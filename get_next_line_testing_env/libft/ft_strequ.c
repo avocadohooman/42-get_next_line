@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/31 12:49:55 by gmolin            #+#    #+#             */
-/*   Updated: 2019/11/07 10:33:23 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/19 19:57:19 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/29 14:54:14 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft.h"
-# define BUFF_SIZE 1
-# define FD_MAX 4864
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+int		ft_strequ(char const *s1, char const *s2)
+{
+	int i;
 
-#endif
+	i = 0;
+	if (s1 == 0 || s1 == 0)
+		return (0);
+	while (s1[i] == s2[i])
+	{
+		if (s1[i] == '\0' || s2[i] == '\0')
+			break ;
+		i++;
+	}
+	if (s1[i] == '\0' && s2[i] == '\0')
+		return (1);
+	else
+		return (0);
+}

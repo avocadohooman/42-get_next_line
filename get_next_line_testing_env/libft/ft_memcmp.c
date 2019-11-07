@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/31 12:49:55 by gmolin            #+#    #+#             */
-/*   Updated: 2019/11/07 10:33:23 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 16:23:04 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/29 13:54:52 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft.h"
-# define BUFF_SIZE 1
-# define FD_MAX 4864
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*tmps1;
+	unsigned char	*tmps2;
 
-#endif
+	if ((!s1 && !s2) || n <= 0)
+		return (0);
+	i = 0;
+	tmps1 = (unsigned char *)s1;
+	tmps2 = (unsigned char *)s2;
+	while (i < n)
+	{
+		if (tmps1[i] != tmps2[i])
+			return ((int)(tmps1[i] - tmps2[i]));
+		i++;
+	}
+	return (0);
+}

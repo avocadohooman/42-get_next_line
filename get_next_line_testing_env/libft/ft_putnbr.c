@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: gmolin <gmolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/31 12:49:55 by gmolin            #+#    #+#             */
-/*   Updated: 2019/11/07 10:33:23 by gmolin           ###   ########.fr       */
+/*   Created: 2019/10/17 16:52:05 by gmolin            #+#    #+#             */
+/*   Updated: 2019/10/19 22:39:34 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft.h"
-# define BUFF_SIZE 1
-# define FD_MAX 4864
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+void	ft_putnbr(int nb)
+{
+	long i;
 
-#endif
+	i = nb;
+	if (i < 0)
+	{
+		ft_putchar('-');
+		i = i * -1;
+	}
+	if (i >= 0 && i <= 9)
+	{
+		ft_putchar(i + 48);
+	}
+	else if (i > 9)
+	{
+		ft_putnbr(i / 10);
+		ft_putnbr(i % 10);
+	}
+}
